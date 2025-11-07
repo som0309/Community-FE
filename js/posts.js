@@ -1,3 +1,5 @@
+import { ENV } from "./env.js";
+
 // ====================== 공통 상수 및 요소 ======================
 const userProfileImg = document.querySelector(".user-profile");
 const profileDropdown = document.querySelector(".profile-dropdown");
