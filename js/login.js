@@ -1,4 +1,4 @@
-import { ENV } from "./env.js";
+import ENV from "./env.js";
 
 /* ======================== 공통 요소 ======================== */
 const email = document.getElementById("email");
