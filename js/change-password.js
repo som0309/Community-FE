@@ -84,6 +84,52 @@ function handleApiError(result) {
     }
 }
 
+/* ======================== 프로필 ======================== */
+async function loadUserProfile() {
+    try {
+        let result = await fetchUserProfile();
+
+        if (result.data?.profile_image) {
+            userProfileImg.src = result.data.profile_image;
+        } else {
+            userProfileImg.src = "../assets/default-profile.png";
+        }
+    } catch (err) {
+        showToast("프로필 정보를 불러오는 중 오류가 발생했습니다.");
+    }
+}
+
+async function fetchUserProfile() {
+    let response = await fetch(`${ENV.API_BASE_URL}/users/me`, {
+        method: "GET",
+        headers: { "Authorization": `Bearer ${accessToken}` },
+        credentials: "include",
+    });
+
+    if (response.status === 401) {
+        const refreshed = await tryRefreshToken();
+        if (!refreshed) {
+            window.location.href = "/login";
+            return;
+        }
+
+        accessToken = localStorage.getItem("accessToken");
+        response = await fetch(`${ENV.API_BASE_URL}/users/me`, {
+            method: "GET",
+            headers: { "Authorization": `Bearer ${accessToken}` },
+            credentials: "include",
+        });
+    }
+
+    const result = await response.json();
+    if (!response.ok) {
+        handleApiError(result);
+        return;
+    }
+
+    return result;
+}
+
 /* ======================== 토큰 재발급 ======================== */
 async function tryRefreshToken() {
     try {
