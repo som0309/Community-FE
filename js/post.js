@@ -480,6 +480,8 @@ async function addComment() {
             return;
         }
 
+        observer.disconnect();
+
         commentInput.value = "";
         submitComment.disabled = true;
         commentList.innerHTML = "";
