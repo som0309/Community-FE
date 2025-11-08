@@ -240,6 +240,7 @@ async function fetchLogout() {
 
 function finalizeLogout() {
     localStorage.removeItem("accessToken");
+    localStorage.removeItem("userId");
     logoutModal.classList.add("hidden");
     logoutCompleteModal.classList.remove("hidden");
 
