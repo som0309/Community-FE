@@ -9,19 +9,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/100-hours-a-week/KTB3_Ann_Cloud_FE.git"
+    "url": "git+https://github.com/som0309/Community-FE.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/100-hours-a-week/KTB3_Ann_Cloud_FE/issues"
+    "url": "https://github.com/som0309/Community-FE/issues"
   },
-  "homepage": "https://github.com/100-hours-a-week/KTB3_Ann_Cloud_FE#readme",
+  "homepage": "https://github.com/som0309/Community-FE#readme",
   "dependencies": {
     "express": "^5.1.0"
   },
   "devDependencies": {
     "jest": "^30.2.0",
     "supertest": "^7.1.4"
-  }
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "keywords": []
 }
