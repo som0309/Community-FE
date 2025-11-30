@@ -9,7 +9,7 @@ app.use('/js', express.static(path.join(__dirname, 'js')));
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 app.get('/', (req, res) => {
-    res.redirect('/login');
+    res.sendFile(path.join(__dirname, 'html', 'login.html'));
 });
 
 app.get('/login', (req, res) => {
